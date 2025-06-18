@@ -64,7 +64,8 @@ void doPost(String outstr) {
   else {
     Serial.println("Connected to server");
     // Make a HTTP request:
-    client.println("POST /macros/s/AKfycbxwxxCaHA24OhuHJWrZQ79a6qOfYCm4-fPbDFGRt9JSZEGv345UuFR-kJw6Sgv7wZq3Qw/exec? HTTP/1.0");//value=Hello HTTP/1.0");
+    // client.println("POST /macros/s/AKfycbxwxxCaHA24OhuHJWrZQ79a6qOfYCm4-fPbDFGRt9JSZEGv345UuFR-kJw6Sgv7wZq3Qw/exec? HTTP/1.0");//value=Hello HTTP/1.0");
+    client.println("POST /macros/s/" + String(provisionInfo.gsid) + "/exec? HTTP/1.0");  //value=Hello HTTP/1.0");
     client.println("Host: " SERVER);
     client.println("Content-Type: application/x-www-form-urlencoded");
     //client.println("Connection: close");
@@ -76,7 +77,7 @@ void doPost(String outstr) {
     client.println();
     delay(200);
     Serial.println("\nResponse from client: ");
-    
+
     while (client.connected()) {
       while (client.available()) {
         char c = client.read();
