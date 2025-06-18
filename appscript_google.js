@@ -20,7 +20,7 @@
  * Better Logger to Google Sheets 'BetterLogger - dont delete'
  *******************************************/
 // Add one line to use BetterLog
-Logger = BetterLog.useSpreadsheet('1B2AWsd1ERaQHfxh8OtDRngoFK0kGmNL4023jO8gaUHU'); // this id is for GS 'BetterLog - dont delete'
+// Logger = BetterLog.useSpreadsheet('1B2AWsd1ERaQHfxh8OtDRngoFK0kGmNL4023jO8gaUHU'); // this id is for GS 'BetterLog - dont delete'
 // Now you can log and it will also log to the spreadsheet
 // Logger.log("That's all you need to do");
 
@@ -51,15 +51,8 @@ function sendToNodeRedPost(data) {
 /**********************************************************************************
  *  Set sheet headers 
  **********************************************************************************/
-//const SS = SpreadsheetApp.openById('1xBtpiDLDQHn37WiUViMZDYyOBye4EJW7eNiWrkDs2kY');
-const SS = SpreadsheetApp.openById('15RGggYRvmYoTIPVg7zpadpdC-nQgDbJR-fF2LNUS6a4');
-const sheet = SS.getSheetByName('Sheet1');
-
-function onOpen() { 
-  let headerRow = [];
-  headerRow.push("datetime","O3 ppbv","cell temp C","press mbar","flow cc/min");
-  sheet.getRange(1, 1, 1, headerRow.length).setValues([headerRow]); 
-}
+const SS = SpreadsheetApp.openById('PLACE GSID FROM GOOGLE SHEET');
+const sheet = SS.getSheetByName('Sheet1'); // don't change this!
 
 /*************************************************************************************
   * The doPost(e) gets triggered when a client calls a post request on the AppScript 
@@ -131,21 +124,6 @@ function doGet(e) {
   let val = e.parameter.value;
   let cal = e.parameter.cal;
   let read = e.parameter.read;
-
-  // if (cal !== undefined) {
-  //   return ContentService.createTextOutput(GetEventsOneWeek());
-  // }
-
-  // if (read !== undefined) {
-  //   let now = Utilities.formatDate(new Date(), "EST", "yyyy-MM-dd'T'hh:mm a'Z'").slice(11, 19);
-  //   sheet.getRange('D1').setValue(now);
-  //   let count = (sheet.getRange('C1').getValue()) + 1;
-  //   sheet.getRange('C1').setValue(count);
-  //   return ContentService.createTextOutput(sheet.getRange('A1').getValue());
-  // }
-
-  // if (val === undefined)
-  //   return ContentService.createTextOutput("No value passed as argument to script Url.");
 
   let range = sheet.getRange('A1');
   let retval = range.getValue();
