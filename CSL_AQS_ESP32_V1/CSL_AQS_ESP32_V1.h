@@ -58,6 +58,7 @@ Secrets provisionInfo;
 #define PRE_PAYLOAD_APPEND_ROW "{\"command\":\"appendRow\",\"sheet_name\":\"Sheet1\",\"values\":\""
 #define PRE_PAYLOAD_ADD_HEADER "{\"command\":\"addHeader\",\"sheet_name\":\"Sheet1\",\"values\":\""
 
+/* OLD CODE FOR WEBPAGE
 static const char provisioningPage[] = R"===(
 <!DOCTYPE HTML><html><head>
   <title>Community Sensor Lab provisioning page</title>
@@ -77,5 +78,5 @@ static const char provisioningPage[] = R"===(
   </form>
 </body></html>
 )===";
-
+*/
 #endif

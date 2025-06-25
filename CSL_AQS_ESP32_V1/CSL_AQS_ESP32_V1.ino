@@ -20,7 +20,7 @@
 void setup() {
 
   Serial.begin(115200);
-  delay(5000);
+  delay(8000);
   Serial.println(__FILE__);
 
   initializeSD();     // initializeSD has to come before initializeOLED or it'll crash
@@ -87,7 +87,7 @@ void loop() {
 
   display.clearDisplay();
   display.setCursor(0, 0);
-  display.printf("T: %.2f C\nP: %.2f mBar\nRH: %.2f%%\n", sensorData.Tbme, sensorData.Pbme, sensorData.RHbme);
+  display.printf("Temp: %.2f C\nP: %.2f mBar\nRH: %.2f%%\n", sensorData.Tbme, sensorData.Pbme, sensorData.RHbme);
   display.printf("CO2: %d ppm\nPM2.5: %.2f ug/m^3\nVOCs: %.2f\n", sensorData.CO2, sensorData.mPm2_5, sensorData.VOCs);
   display.printf("Bat: %.2f V\n", sensorData.Vbat);
   display.display();
@@ -96,7 +96,8 @@ void loop() {
   if (!provisionInfo.valid) {
     softAPprovision();
     connectToWiFi();
-  }
 
+   
+  }
   delay(60000); // 1 minute
 }
